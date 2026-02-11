@@ -1,0 +1,146 @@
+{
+  "books": [
+    {
+      "id": "13ec",
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "genre": "Self-Help",
+      "status": "done",
+      "summary": "Atomic habit\n1. How powerful is tiny habit\n-focus on system not goal: Instead of focusing job, focus on mental performance , sleep, energy, communication because as we achieve certain goal, we don't go back as we built strong system or habit.\n-success is collection of tiny habit and daily habits often seen as no improvement until crossed cirtical threshold then it look like overnight sucess.\n\n2. How habit shape our identity\n-the most effective way to change habit is identity based habit not process based or outcome based. Identity is what we believe. True behavior change is identity change. You might start a habit because of motivation, but the only reason you’ll stick with one is that it becomes part of your identity otherwise our belief or identity contradicts. Deeper identity or belief means stronger habits. We need to unlearn edit our beliefs and expand our identity. When we begin to change then proof accumulate and our identity or self image begin to change so its hard to start but compond later. Every single effort is vote for change and start to believe. \nAsk yourself what a dream person do and act like that until become one. Deepest belief is what our life is driven and our tiny habit bend toward that by accumulation. \n\n3. How to build better habit in 4 steps\nCue- make it obvious or invisible \nCraving - make it attractive or unattractive \nResponse - make it easy or difficult \nReward - make it satisfying or unsatisfying \n\n\n4. 1st Law- Make it obvious\nAware-Plan-Stack-Environment \nWith enough practice, our habits become automatic and we don't need consious effort. Same apply to bad habits which break through awareness. \nPointing and calling raises awareness. Apply this method by journaling habit score cared + and - . \n\n5. How to start new habit with cue\nResearch shows that being specific to your plan or goal where, when and how are likely to be achievable like instead of saying I am gonna eat healthy, but I am gonna eat grain bread and avocado at 9:30am after I wakeup at kitchen as motivation comes with clarity. When your dream plan is vague then its more likely to distracted and unmotivated\nI will [BEHAVIOR] at [TIME] in [LOCATION].\nOnce we set time and place and work to do, we need enough repetition to make it easy without consious effort. \nHabit stack- this method have build in time and place so - human follow this method so we are using advantage of this not by creating new habit but stacking it with old habit like after shower, I will do pushup in my room. Once structured, follow repetition to gain natural momentum. Insert all good habit that contributes to dream like before sleep read. Stacking can be in many categories like social- I will talk to one stranger today or exercise- when i come back home, I will do pushup.\nAnother trigger method can be combined, when X arise, I will do Y.\nFactor- choose good time and place like meditation on silent place and time. \nHabit should be stacked with everyday habit not habit done only in Monday. \nJ- list of all habits with + and - and trigger on 2nd column like sun rise, you get text message this time. Search best place to stack. \n\n6. Environment > Motivation\n-Human most powerful sesory is Vision so Customize the good cues obvious in your Environment. If multiple is better. \n-Brain associate work with environment. Bed = sleep. Chair = study. Follow \"one space one use\" means separate space for study, relax, cook. If room is limited, use space like bed, chair even digital space- phone relax and laptop study. Focus dont come in that place where we play games. It is easier to build new habits in a new environment because you are not fighting against old cues\n\n7. Secret to Self Control- Make it invisible \n-Rich people don't have strong willpower or self control but they better structuring their environment. They spend less time in tempting environments. Only practicing preservarance, grit and willpower is not enough. Good environment preserve energy and helps to practice these qualities else we fall. \n-Bad cues take 33 millisecond in brain to trigger tempetation. Bad habits is downside spiral. We get stressed, smoke, get more stressed. Basically, someone never stick to good habits in a negative environment. We are product of environment even digital. \nExamples- \nLeave phone in another room while studying \n-Stop following social media accounts that trigger jealousy and envy.\n\n1st Law Summary- Make it obvious \n- Aware- Habit ScoreCard\n- Plan-  I will [BEHAVIOR] at [TIME] in [LOCATION]\n- Habit Stacking: “After [CURRENT HABIT], I will [NEW HABIT]\n- Environment- make good cues obvious and visible and for bad, reduce exposure.\n\n\n\n2nd Law - Make it Attractive \n8. How to make habit irresistible. \n\n\n\n\n\n\n\n\n\n",
+      "createdAt": "2026-02-07T00:31:38.941Z",
+      "updatedAt": "2026-02-07T00:32:07.516Z"
+    },
+    {
+      "status": "done",
+      "summary": "",
+      "updatedAt": "2026-02-11T16:43:36.839Z",
+      "id": "3b28"
+    },
+    {
+      "id": "be97",
+      "title": "Think and Grow Rich",
+      "author": "Napoleon Hill",
+      "genre": "Self-Help",
+      "status": "watchlist",
+      "notes": "The 13 Principles of Success\nDesire: Achievement begins with a \"burning desire\" for a definite goal.\nFaith: Visualizing and believing you have already achieved your goal.\nAuto-Suggestion: Reprogramming the subconscious via daily affirmations.\nSpecialized Knowledge: Learning specific skills rather than general information.\nImagination: The \"workshop\" where plans are created.\nOrganized Planning: Converting desire into a practical, step-by-step plan.\nDecision: Successful people make decisions quickly and change them slowly.\nPersistence: The willpower to push through temporary defeat.\nPower of the Master Mind: Surrounding yourself with supportive, like-minded people.\nSex Transmutation: Redirecting powerful sexual energy into creative and productive work.\nThe Subconscious Mind: The link between the human mind and \"Infinite Intelligence\".\nThe Brain: Acting as a broadcasting and receiving station for thought vibrations.\nThe Sixth Sense: Developing intuition to receive guidance and inspiration. \n\nThe 6-Step Action Plan for Wealth\nHill provides a concrete formula for accumulating riches: \nFix the exact amount of money you desire.\nDetermine what you will give in return for this wealth.\nEstablish a definite date by which you intend to possess it.\nCreate a definite plan and begin executing it immediately.\nWrite out a clear statement encompassing the four steps above.\nRead this statement aloud twice daily—morning and night—visualizing yourself already in possession of the money. \n\n",
+      "summary": "hi"
+    },
+    {
+      "id": "990e",
+      "title": "The Power of Now",
+      "author": "Eckhart Tolle",
+      "genre": "Self-Help",
+      "status": "done"
+    },
+    {
+      "id": "0891",
+      "title": "How to Win Friends and Influence People",
+      "author": "Dale Carnegie",
+      "genre": "Self-Help",
+      "status": "done",
+      "notes": "We should win friend"
+    },
+    {
+      "id": "bc4a",
+      "title": "The Subtle Art of Not Giving a Fck*",
+      "author": "The Subtle Art of Not Giving a Fck*",
+      "genre": "Self-Help",
+      "status": "watchlist"
+    },
+    {
+      "id": "d1a0",
+      "title": "Deep Work",
+      "author": "Cal Newport",
+      "genre": "Self-Help",
+      "status": "in-progress"
+    },
+    {
+      "id": "b400",
+      "title": "You Are a Badass",
+      "author": "Jen Sincero",
+      "genre": "Self-Help",
+      "status": "watchlist"
+    },
+    {
+      "id": "57ff",
+      "title": "1984",
+      "author": "George Orwell",
+      "genre": "Fiction",
+      "status": "in-progress"
+    },
+    {
+      "id": "bc2c",
+      "title": "Sapiens: A Brief History of Humankind",
+      "author": "Yuval Noah Harari",
+      "genre": "Non-Fiction",
+      "status": "in-progress"
+    },
+    {
+      "status": "in-progress",
+      "summary": "",
+      "updatedAt": "2026-02-11T19:26:33.174Z",
+      "id": "WpdQAAAAMAAJ"
+    },
+    {
+      "status": "in-progress",
+      "summary": "",
+      "updatedAt": "2026-02-11T19:27:19.915Z",
+      "id": "otw9AQAAIAAJ"
+    },
+    {
+      "status": "in-progress",
+      "summary": "",
+      "updatedAt": "2026-02-11T19:33:57.922Z",
+      "id": "8e33"
+    },
+    {
+      "status": "in-progress",
+      "summary": "",
+      "updatedAt": "2026-02-11T19:34:49.480Z",
+      "id": "f05a"
+    },
+    {
+      "id": "fHZTIZ8K-lUC",
+      "title": "Industrial Robotics Handbook",
+      "author": "V. Daniel Hunt",
+      "genre": "Business & Economics",
+      "status": "watchlist",
+      "image": "http://books.google.com/books/content?id=fHZTIZ8K-lUC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "summary": "",
+      "createdAt": "2026-02-11T19:37:29.470Z",
+      "updatedAt": "2026-02-11T19:37:29.470Z"
+    },
+    {
+      "status": "done",
+      "summary": "",
+      "updatedAt": "2026-02-11T19:38:22.754Z",
+      "id": "1770838693404"
+    },
+    {
+      "status": "in-progress",
+      "summary": "",
+      "updatedAt": "2026-02-11T19:42:52.370Z",
+      "id": "1770838966865"
+    },
+    {
+      "status": "done",
+      "updatedAt": "2026-02-11T19:44:30.741Z",
+      "id": "1770839064692"
+    },
+    {
+      "status": "in-progress",
+      "updatedAt": "2026-02-11T19:49:06.174Z",
+      "id": "1770839307076"
+    },
+    {
+      "id": "1770839772037",
+      "title": "Rust Programming By Example",
+      "author": "Guillaume Gomez, Antoni Boucher",
+      "genre": "Computers",
+      "status": "watchlist",
+      "image": "http://books.google.com/books/content?id=qNRJDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "createdAt": "2026-02-11T19:56:12.037Z",
+      "updatedAt": "2026-02-11T19:56:12.037Z"
+    }
+  ]
+}
