@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState, useMemo } from "react";
-import * as BookService from "../api/api";
+import * as BookService from "../api/firebaseBooks";
 
 const BooksContext = createContext();
 export const useBooks = () => useContext(BooksContext);
@@ -13,19 +13,21 @@ export function BooksProvider({ children }) {
     loadBooks();
   }, []);
 
+  // LOAD BOOKS
   const loadBooks = async () => {
     setLoading(true);
     setError(null);
 
     try {
-      const res = await BookService.getBooks();
+      const data = await BookService.getBooks();
 
-      const normalized = res.data.map((b) => ({
-        id: b.id,
-        title: b.title,
-        author: b.author,
-        genre: b.genre,
-        status: b.status,
+      // NORMALIZE DATA: ensure every book has all required fields
+      const normalized = (data || []).map((b) => ({
+        id: b.id || Date.now().toString(),
+        title: b.title || "Untitled",
+        author: b.author || "Unknown",
+        genre: b.genre || "Uncategorized",
+        status: b.status || "watchlist",
         summary: b.summary || "",
         image: b.image || "",
         createdAt: b.createdAt || new Date().toISOString(),
@@ -40,61 +42,50 @@ export function BooksProvider({ children }) {
     }
   };
 
+  // ADD BOOK
   const addBook = async (book) => {
-    // Check if book already exists
-    const exists = books.some(
-      (b) =>
-        b.title === book.title &&
-        b.author === book.author &&
-        b.genre === book.genre,
-    );
-
-    if (exists) {
-      alert(`"${book.title}" is already in your list!`);
-      return; // stop adding
-    }
-
-    // Create payload for new book
     const timestamp = new Date().toISOString();
     const payload = {
       ...book,
-      id: Date.now().toString(), // unique ID for watch later
+      id: Date.now().toString(),
       createdAt: timestamp,
       updatedAt: timestamp,
+      status: book.status || "watchlist",
+      summary: book.summary || "",
+      image: book.image || "",
     };
 
     try {
-      const res = await BookService.createBook(payload);
-      setBooks((prev) => [...prev, res.data]);
+      const saved = await BookService.createBook(payload);
+      setBooks((prev) => [...prev, saved]);
     } catch (err) {
       setError(err.message || "Failed to add book");
-      // fallback for local copy, only if you want offline storage
-      setBooks((prev) => [...prev, payload]);
+      setBooks((prev) => [...prev, payload]); // fallback
     }
   };
 
-  const editBook = async (id, updated) => {
-    const timestamp = new Date().toISOString();
+  // EDIT BOOK
+  const editBook = async (id, updates) => {
+    const updatedAt = new Date().toISOString();
+    const payload = { ...updates, updatedAt };
+
+    setBooks((prev) =>
+      prev.map((b) => (b.id === id ? { ...b, ...payload } : b)),
+    );
 
     try {
-      // Only update the fields provided
-      setBooks((prev) =>
-        prev.map((b) =>
-          b.id === id ? { ...b, ...updated, updatedAt: timestamp } : b,
-        ),
-      );
-
-      // Optional API call to sync
-      await BookService.updateBook(id, { ...updated, updatedAt: timestamp });
+      await BookService.updateBook(id, payload);
     } catch (err) {
       setError(err.message || "Failed to update book");
     }
   };
 
+  // DELETE BOOK
   const removeBook = async (id) => {
+    setBooks((prev) => prev.filter((b) => b.id !== id));
+
     try {
       await BookService.deleteBook(id);
-      setBooks((prev) => prev.filter((b) => b.id !== id));
     } catch (err) {
       setError(err.message || "Failed to delete book");
     }
