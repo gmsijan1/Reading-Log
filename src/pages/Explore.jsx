@@ -1,12 +1,14 @@
 import { useBooks } from "../context/BooksContext";
 import { useState, useEffect } from "react";
 import "../styles/app.css";
+import LoginForm from "./LoginForm";
 
 export default function Explore() {
-  const { addBook, books: watchLaterBooks } = useBooks();
+  const { addBook, books: watchLaterBooks, user } = useBooks();
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -28,6 +30,10 @@ export default function Explore() {
   }, []);
 
   const handleAdd = (book) => {
+    if (!user) {
+      setShowLoginModal(true);
+      return;
+    }
     const payload = {
       title: book.volumeInfo.title,
       author: (book.volumeInfo.authors || []).join(", "),
@@ -58,6 +64,7 @@ export default function Explore() {
 
   return (
     <div className="explore-container">
+      {showLoginModal && <LoginForm onClose={() => setShowLoginModal(false)} />}
       <h2>Explore Books</h2>
       <div className="explore-grid">
         {books.map((book) => {

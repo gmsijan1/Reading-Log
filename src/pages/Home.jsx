@@ -149,7 +149,9 @@ export default function Home() {
       <InputForm />
 
       {!user && (
-        <p style={{ color: "#888" }}>Login to add, edit, or delete books.</p>
+        <p style={{ color: "#888" }}>
+          Public view. Login to add, edit, or delete books.
+        </p>
       )}
 
       {/* Filters */}
