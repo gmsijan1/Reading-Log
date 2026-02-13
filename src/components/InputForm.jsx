@@ -7,7 +7,7 @@ export default function InputForm({
   existingData = null,
   onFinish,
 }) {
-  const { addBook, editBook, books } = useBooks();
+  const { addBook, editBook, books, user } = useBooks(); // user added
 
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
@@ -26,6 +26,11 @@ export default function InputForm({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // LOGIN POPUP check
+    if (!user) {
+      return alert("Please login to add a book");
+    }
 
     const trimmedTitle = title.trim();
     const trimmedAuthor = author.trim();
@@ -129,31 +134,33 @@ export default function InputForm({
           </select>
         </div>
 
-        <div className="form-group">
+        <div className="form-group form-actions">
           <button
             type="button"
             className="pdf-btn"
             onClick={() => setShowPdfModal(true)}
+            title="PDF upload coming soon"
           >
-            Upload PDF
-          </button>
-
-          <button type="submit" className="add-btn">
-            {editBookId ? "Save" : "+ Add Book"}
+            📎 PDF
           </button>
         </div>
+
+        <button type="submit" className="add-btn primary-action">
+          {editBookId ? "✓ Save Book" : "+ Add Book"}
+        </button>
       </form>
 
       {showPdfModal && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <p>PDF upload is not available yet.</p>
             <button
               className="modal-close-btn"
               onClick={() => setShowPdfModal(false)}
+              aria-label="Close"
             >
-              Close
+              ✕
             </button>
+            <p>PDF upload is not available yet.</p>
           </div>
         </div>
       )}
