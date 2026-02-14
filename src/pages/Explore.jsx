@@ -1,14 +1,12 @@
 import { useBooks } from "../context/BooksContext";
 import { useState, useEffect } from "react";
 import "../styles/app.css";
-import LoginForm from "./LoginForm";
 
-export default function Explore() {
+export default function Explore({ showPopup }) {
   const { addBook, books: watchLaterBooks, user } = useBooks();
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [showLoginModal, setShowLoginModal] = useState(false);
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -31,7 +29,7 @@ export default function Explore() {
 
   const handleAdd = (book) => {
     if (!user) {
-      setShowLoginModal(true);
+      showPopup?.("Please login to add books");
       return;
     }
     const payload = {
@@ -50,12 +48,12 @@ export default function Explore() {
     );
 
     if (exists) {
-      alert(`"${payload.title}" is already in Watch Later`);
-      return; // stops here, alert only once
+      showPopup?.(`"${payload.title}" is already in Watch Later`);
+      return;
     }
 
     addBook(payload);
-    alert(`Added "${payload.title}" to Watch Later`);
+    showPopup?.(`Added "${payload.title}" to Watch Later`);
   };
 
   if (loading) return <p>Loading books...</p>;
@@ -64,7 +62,6 @@ export default function Explore() {
 
   return (
     <div className="explore-container">
-      {showLoginModal && <LoginForm onClose={() => setShowLoginModal(false)} />}
       <h2>Explore Books</h2>
       <div className="explore-grid">
         {books.map((book) => {
@@ -101,9 +98,9 @@ export default function Explore() {
                 <button
                   className="add-btn"
                   onClick={() => handleAdd(book)}
-                  disabled={exists}
+                  disabled={user && exists}
                 >
-                  {exists ? "Added" : "Add to Watch Later"}
+                  {user && exists ? "Added" : "Add to Watch Later"}
                 </button>
               </div>
             </div>

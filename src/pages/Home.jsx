@@ -18,6 +18,12 @@ export default function Home() {
   const [genreFilter, setGenreFilter] = useState("All");
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+  const [popup, setPopup] = useState("");
+
+  const showPopup = (msg) => {
+    setPopup(msg);
+    setTimeout(() => setPopup(""), 2000); // disappears after 2 seconds
+  };
 
   const handleTabChange = (tab) => {
     setSearchParams({ tab });
@@ -44,12 +50,14 @@ export default function Home() {
       if (!user) return alert("Please login to delete books");
       if (window.confirm("Are you sure you want to delete this book?")) {
         removeBook(book.id);
+        showPopup("Book deleted successfully");
       }
     };
 
     const handleStatusChange = (e) => {
       if (!user) return alert("Please login to change status");
       editBook(book.id, { status: e.target.value });
+      showPopup("Book status updated");
     };
 
     const handleEditSummary = () => {
@@ -108,6 +116,8 @@ export default function Home() {
 
   return (
     <div className="home-container">
+      {popup && <div className="popup-message">{popup}</div>}
+
       <div className="home-header">
         <h2 className="page-title">Reading Log</h2>
 
@@ -146,7 +156,7 @@ export default function Home() {
       {showLoginModal && <LoginForm onClose={() => setShowLoginModal(false)} />}
 
       {/* CREATE */}
-      <InputForm />
+      <InputForm showPopup={showPopup} />
 
       {!user && (
         <p style={{ color: "#888" }}>
@@ -209,7 +219,7 @@ export default function Home() {
 
       {/* Content */}
       {activeTab === "explore" ? (
-        <Explore />
+        <Explore showPopup={showPopup} />
       ) : (
         <ul className="book-list">{renderTabContent()}</ul>
       )}

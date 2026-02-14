@@ -6,6 +6,7 @@ export default function InputForm({
   editBookId = null,
   existingData = null,
   onFinish,
+  showPopup,
 }) {
   const { addBook, editBook, books, user } = useBooks(); // user added
 
@@ -29,26 +30,35 @@ export default function InputForm({
 
     // LOGIN POPUP check
     if (!user) {
-      return alert("Please login to add a book");
+      showPopup?.("Please login to add or edit books");
+      return;
     }
 
     const trimmedTitle = title.trim();
     const trimmedAuthor = author.trim();
 
-    if (!trimmedTitle) return alert("Title is required");
-
-    if (trimmedTitle.length > 100)
-      return alert("Title too long (max 100 chars)");
-    if (trimmedAuthor.length > 100)
-      return alert("Author name too long (max 100 chars)");
+    if (!trimmedTitle) {
+      showPopup?.("Title is required");
+      return;
+    }
+    if (trimmedTitle.length > 100) {
+      showPopup?.("Title too long (max 100 chars)");
+      return;
+    }
+    if (trimmedAuthor.length > 100) {
+      showPopup?.("Author name too long (max 100 chars)");
+      return;
+    }
 
     const isDuplicate = books.some(
       (b) =>
         b.title.trim().toLowerCase() === trimmedTitle.toLowerCase() &&
         b.id !== editBookId,
     );
-    if (isDuplicate) return alert("A book with this title already exists");
-
+    if (isDuplicate) {
+      showPopup?.("A book with this title already exists");
+      return;
+    }
     const timestamp = new Date().toISOString();
     const bookData = {
       title: trimmedTitle,
@@ -62,8 +72,10 @@ export default function InputForm({
 
     if (editBookId) {
       await editBook(editBookId, bookData);
+      showPopup?.("Book updated successfully");
     } else {
       await addBook(bookData);
+      showPopup?.("Book added successfully");
     }
 
     setTitle("");
