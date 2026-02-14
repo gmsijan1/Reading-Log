@@ -28,7 +28,6 @@ export default function InputForm({
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // LOGIN POPUP check
     if (!user) {
       showPopup?.("Please login to add or edit books");
       return;

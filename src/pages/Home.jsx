@@ -47,7 +47,11 @@ export default function Home() {
     const editableSummary = activeTab === "in-progress" || activeTab === "done";
 
     const handleDelete = () => {
-      if (!user) return alert("Please login to delete books");
+      if (!user) {
+        showPopup("Please login to delete books");
+        return;
+      }
+
       if (window.confirm("Are you sure you want to delete this book?")) {
         removeBook(book.id);
         showPopup("Book deleted successfully");
@@ -55,13 +59,21 @@ export default function Home() {
     };
 
     const handleStatusChange = (e) => {
-      if (!user) return alert("Please login to change status");
+      if (!user) {
+        showPopup("Please login to change status");
+        return;
+      }
+
       editBook(book.id, { status: e.target.value });
       showPopup("Book status updated");
     };
 
     const handleEditSummary = () => {
-      if (!user) return alert("Please login to edit summary");
+      if (!user) {
+        showPopup("Please login to edit summary");
+        return;
+      }
+
       navigate(`/summary/${book.id}`);
     };
 
