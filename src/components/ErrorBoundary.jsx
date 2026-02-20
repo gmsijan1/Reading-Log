@@ -22,9 +22,7 @@ export default class ErrorBoundary extends React.Component {
         <div className="error-boundary">
           <h2>Something went wrong.</h2>
           <p>Please try reloading the app.</p>
-          <button onClick={this.handleReload}>
-            Reload App
-          </button>
+          <button onClick={this.handleReload}>Reload App</button>
         </div>
       );
     }

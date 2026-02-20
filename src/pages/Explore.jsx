@@ -10,7 +10,7 @@ export default function Explore({ showPopup }) {
 
   useEffect(() => {
     let cancelled = false;
-    
+
     const fetchBooks = async () => {
       setLoading(true);
       setError(null);
@@ -18,16 +18,18 @@ export default function Explore({ showPopup }) {
         const res = await fetch(
           "https://www.googleapis.com/books/v1/volumes?q=programming&maxResults=40",
         );
-        
+
         if (!res.ok) {
           if (res.status === 429) {
-            throw new Error("Rate limit exceeded. Please wait a moment and refresh.");
+            throw new Error(
+              "Rate limit exceeded. Please wait a moment and refresh.",
+            );
           }
           throw new Error(`API error: ${res.status}`);
         }
-        
+
         const data = await res.json();
-        
+
         if (!cancelled) {
           setBooks(data.items || []);
         }
@@ -41,9 +43,9 @@ export default function Explore({ showPopup }) {
         }
       }
     };
-    
+
     fetchBooks();
-    
+
     return () => {
       cancelled = true;
     };
@@ -79,17 +81,15 @@ export default function Explore({ showPopup }) {
   };
 
   if (loading) return <p>Loading books...</p>;
-  if (error) return (
-    <div className="error-container">
-      <p className="error-message">{error}</p>
-      <button 
-        className="add-btn" 
-        onClick={() => window.location.reload()}
-      >
-        Retry
-      </button>
-    </div>
-  );
+  if (error)
+    return (
+      <div className="error-container">
+        <p className="error-message">{error}</p>
+        <button className="add-btn" onClick={() => window.location.reload()}>
+          Retry
+        </button>
+      </div>
+    );
   if (!books.length) return <p>No books found.</p>;
 
   return (

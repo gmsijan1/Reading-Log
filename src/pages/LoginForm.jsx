@@ -91,9 +91,7 @@ export default function LoginForm({ onClose }) {
           </button>
         </form>
 
-        <div className="divider">
-          ──────────────────────────────────
-        </div>
+        <div className="divider">──────────────────────────────────</div>
 
         <button className="google-btn" onClick={handleGoogleLogin}>
           Continue with Google
