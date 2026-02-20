@@ -91,7 +91,7 @@ export default function LoginForm({ onClose }) {
           </button>
         </form>
 
-        <div style={{ margin: "1.5rem 0", color: "var(--color-text-muted)" }}>
+        <div className="divider">
           ──────────────────────────────────
         </div>
 

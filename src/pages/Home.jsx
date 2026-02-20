@@ -110,7 +110,7 @@ export default function Home() {
 
   const renderTabContent = () => {
     if (loading) return <p>Loading books...</p>;
-    if (error) return <p style={{ color: "red" }}>{error}</p>;
+    if (error) return <p className="error-message">{error}</p>;
     if (!filteredBooks.length) {
       const hasActiveFilters =
         searchQuery.trim() !== "" || genreFilter !== "All";
@@ -171,7 +171,7 @@ export default function Home() {
       <InputForm showPopup={showPopup} />
 
       {!user && (
-        <p style={{ color: "#888" }}>
+        <p className="info-message">
           Public view. Login to add, edit, or delete books.
         </p>
       )}
